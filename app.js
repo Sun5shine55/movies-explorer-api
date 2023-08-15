@@ -31,7 +31,7 @@ mongoose.connect(addressDB).then(() => {
 });
 
 app.use(cors({
-  origin: 'https://chamomile.nutus.nomoredomains.xyz',
+  origin: 'https://chamomile.nomoredomains.xyz',
   credentials: true,
 }));
 app.use(requestLogger); // подключаем логгер запросов
