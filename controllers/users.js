@@ -48,7 +48,15 @@ const updateUserData = (req, res, next) => {
     upsert: false,
   })
     .then((user) => res.status(200).send(user))
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new ValidationError('Переданы некорректные данные при обновлении пользователя'));
+      } else if (err.code === MONGO_ERROR_CONFLIKT) {
+        next(new ConflictError('Пользователь с таким email уже зарегистрирован'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 const login = (req, res, next) => {

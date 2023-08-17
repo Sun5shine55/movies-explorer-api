@@ -6,7 +6,7 @@ const ValidationError = require('../errors/ValidationError');
 
 const getMovies = (req, res, next) => {
   const userId = req.user._id;
-  Movie.find({ user: userId })
+  Movie.find({ owner: userId })
     .then((movies) => res.status(200).send(movies))
     .catch(next);
 };
@@ -28,7 +28,7 @@ const deleteMovie = (req, res, next) => {
 const createMovie = (req, res, next) => {
   const {
     country, director, duration, year, description, image,
-    trailer, nameRU, nameEN, thumbnail, movieId,
+    trailerLink, nameRU, nameEN, thumbnail, movieId,
   } = req.body;
   Movie.create({
     country,
@@ -37,7 +37,7 @@ const createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,

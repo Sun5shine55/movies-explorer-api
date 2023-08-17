@@ -33,7 +33,7 @@ router.get('/signout', logout);
 
 router.use('/', auth, userRoutes);
 router.use('/', auth, movieRoutes);
-router.all('*', (next) => {
+router.all('*', (req, res, next) => {
   const error = new NotFoundError('Указан неправильный маршрут');
   next(error);
 });

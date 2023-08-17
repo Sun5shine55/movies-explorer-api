@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     minLength: [2, 'Минимальная длина поля "name" - 2'],
     maxLength: [30, 'Максимальная длина поля "name" - 30'],
+    required: true,
   },
   email: {
     type: String,
