@@ -11,7 +11,7 @@
 
 IP 51.250.6.91
 
-Frontend https://chamomile.nutus.nomoredomains.xyz
+Frontend https://chamomile.nomoredomains.xyz
 
-Backend https://api.chamomile.nutus.nomoredomains.xyz
+Backend https://api.chamomile.nomoredomains.xyz
 
